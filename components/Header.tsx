@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 
@@ -6,11 +7,13 @@ type Props = {}
 export default function Header(props: Props) {
     return (
         <header className="sticky top-0 p-5 flex-items-start justify-between max-w-7xl mx-auto">
-            <motion.div
-            initial
-            >
+            <motion.div 
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}  
+                transition={{ delay: 0.5, duration: 0.5 }}
 
-            <div className="flex flex-row items-center">
+                        
+            className="flex flex-row items-center">
                 <SocialIcon url="https://www.linkedin.com/in/andrew-lee-0b0b1b1b9/"
                     fgColor='gray'
                     bgColor='transparent' />
@@ -24,9 +27,13 @@ export default function Header(props: Props) {
                     fgColor='gray'
                     bgColor='transparent' />
 
-            </div>
+            </motion.div>
 
-            <div className='flex flex-row items-center text-gray-300 cursor-pointer'>
+            <motion.div
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+             className='flex flex-row items-center text-gray-300 cursor-pointer'>
                 <SocialIcon className="cursor-pointer"
                     network='email'
                     url="mailto:info@simamdigital.com"
@@ -37,7 +44,7 @@ export default function Header(props: Props) {
                     Get in touch with me 
                     </p>
 
-            </div>
+            </motion.div>
         </header>
     )
 }
